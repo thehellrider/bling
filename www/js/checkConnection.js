@@ -5,19 +5,19 @@
     // it will call the event `deviceready`.
     //
 	
-    function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);		
-		document.addEventListener("offline", onOffline, false);
-    }
-
+    // Wait for Cordova to load
+    // 
+    document.addEventListener("deviceready", onDeviceReady, false);
+    
     // Cordova is loaded and it is now safe to make calls Cordova methods
     //
-    function onDeviceReady() {	
-		checkConnection();        
+    function onDeviceReady() {
+		document.addEventListener("offline", onOffline, false);
+		document.addEventListener('online',onOnline,false);
+		checkConnection();
     }
 	
 	function checkConnection() {
-		
 		var networkState = navigator.connection.type;
 	
 		var states = {};
@@ -30,18 +30,16 @@
 		states[Connection.CELL]     = 'Cell generic connection';
 		states[Connection.NONE]     = 'No network connection';
 	
-		alert('Connection type: ' + states[networkState]);
-		//return states[networkState];	
-		if(states[networkState] != states[Connection.NONE]){
-			window.location = "login.html";
-		}else{
-			window.location = "conexion.html";
-		}
+		//alert('Connection type: ' + states[networkState]);
+		window.location = "login.html";
 	}
-    // Handle the offline event
-    //
+	
+	function onOnline() {
+		alert("Now you're connected");
+	}
+   
     function onOffline() {
-		alert('Necesitas estar conectado a Internet. Verifica tu conexión');
+		alert("Please check your internet connection");
 		window.location = "conexion.html";
     }
 
