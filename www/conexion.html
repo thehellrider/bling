@@ -46,8 +46,21 @@
      <link rel="stylesheet" href="css/styles.css">
 	<script defer src="js/material.min.js"></script>
 	<!--material ui-->
-    <script type="text/javascript" src="js/checkConnection.js"></script>
+    <script>
+     document.addEventListener("deviceready", onDeviceReady, false);
+    
+    // Cordova is loaded and it is now safe to make calls Cordova methods
+    //
+    function onDeviceReady() {
+		document.addEventListener("online", onOnline, false);		
+    }
+   
+    function onOnline() {
+		alert("You're now connected to internet");		
+    }
+    </script>
     <title>Bling Logistics Network</title>
+    
 </head>
 
 <body onload="onLoad()">
