@@ -18,7 +18,7 @@
 	
 	function checkConnection() {
 		
-		var networkState = navigator.network.connection.type;
+		var networkState = navigator.connection.type;
 	
 		var states = {};
 		states[Connection.UNKNOWN]  = 'Unknown connection';
@@ -31,7 +31,12 @@
 		states[Connection.NONE]     = 'No network connection';
 	
 		alert('Connection type: ' + states[networkState]);
-		return states[networkState];		
+		//return states[networkState];	
+		if(states[networkState] != states[Connection.NONE]){
+			window.location = "login.html";
+		}else{
+			window.location = "conexion.html";
+		}
 	}
     // Handle the offline event
     //
