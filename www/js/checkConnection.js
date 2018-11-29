@@ -6,18 +6,19 @@
     //
 	
     function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
+        document.addEventListener("deviceready", onDeviceReady, false);		
+		document.addEventListener("offline", onOffline, false);
     }
 
     // Cordova is loaded and it is now safe to make calls Cordova methods
     //
-    function onDeviceReady() {		
-        document.addEventListener("offline", onOffline, false);
+    function onDeviceReady() {	
+		checkConnection();        
     }
 	
 	function checkConnection() {
 		
-		var networkState = navigator.connection.type;
+		var networkState = navigator.network.connection.type;
 	
 		var states = {};
 		states[Connection.UNKNOWN]  = 'Unknown connection';
@@ -35,7 +36,7 @@
     // Handle the offline event
     //
     function onOffline() {
-		//alert('Necesitas estar conectado a Internet. Verifica tu conexión');
+		alert('Necesitas estar conectado a Internet. Verifica tu conexión');
 		window.location = "conexion.html";
     }
 
