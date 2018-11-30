@@ -46,45 +46,7 @@
      <link rel="stylesheet" href="css/styles.css">
 	<script defer src="js/material.min.js"></script>
 	<!--material ui-->
-    <script>
-     document.addEventListener("deviceready", onDeviceReady, false);
-    
-    // Cordova is loaded and it is now safe to make calls Cordova methods
-    //
-    function onDeviceReady() {
-		document.addEventListener("offline", onOffline, false);
-		checkConnection();
-    }
-	
-	function checkConnection() {
-		var networkState = navigator.connection.type;
-	
-		var states = {};
-		states[Connection.UNKNOWN]  = 'Unknown connection';
-		states[Connection.ETHERNET] = 'Ethernet connection';
-		states[Connection.WIFI]     = 'WiFi connection';
-		states[Connection.CELL_2G]  = 'Cell 2G connection';
-		states[Connection.CELL_3G]  = 'Cell 3G connection';
-		states[Connection.CELL_4G]  = 'Cell 4G connection';
-		states[Connection.CELL]     = 'Cell generic connection';
-		states[Connection.NONE]     = 'No network connection';
-	
-		alert('Connection type: ' + states[networkState]);
-		if(states[networkState]!=Connection.NONE) || states[networkState]!=Connection.UNKNOWN){
-			//window.location = "login.html";
-			var iframe = document.getElementById('content');
-			iframe.src = "https://blinglogisticsnetwork.com/index.php/log-in-app";
-		}
-		else{
-			window.location = "conexion.html";
-		}
-	}
-   
-    function onOffline() {
-		alert("Please check your internet connection");
-		window.location = "conexion.html";
-    }
-    </script>
+    <script src="js/checkConnection.js"></script>
     <title>Bling Logistics Network</title>
 </head>
 
@@ -114,9 +76,9 @@
     
       <main class="mdl-layout__content mdl-color--grey-100">  
         <div class="mdl-grid demo-content">-->
-        <div id="content" style="position: absolute; height: 100%; width:100%; border: none;" frameborder="0">
-          <div style="text-align:center"><img src="images/logo_bling.png" alt="bling"/></div>
-        </div>
+       
+          <iframe id="wrapper" src="https://blinglogisticsnetwork.com/index.php/log-in-app" style="position: absolute; height: 100%; width:100%; border: none;" frameborder="0"></iframe>
+       
       <!--   </div>
      </main>  
       </div> -->
