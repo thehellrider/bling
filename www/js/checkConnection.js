@@ -30,8 +30,8 @@
 		states[Connection.CELL]     = 'Cell generic connection';
 		states[Connection.NONE]     = 'No network connection';
 	
-		//alert('Connection type: ' + states[networkState]);
-		window.location = "login.html";
+		alert('Connection type: ' + states[networkState]);
+		//window.location = "login.html";
 	}
 	
 	function onOnline() {
