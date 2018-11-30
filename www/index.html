@@ -69,9 +69,11 @@
 		states[Connection.CELL]     = 'Cell generic connection';
 		states[Connection.NONE]     = 'No network connection';
 	
-		//alert('Connection type: ' + states[networkState]);
-		if(states[networkState]!==Connection.NONE){
-			window.location = "login.html";
+		alert('Connection type: ' + states[networkState]);
+		if(states[networkState]!=Connection.NONE) || states[networkState]!=Connection.UNKNOWN){
+			//window.location = "login.html";
+			var iframe = document.getElementById('content');
+			iframe.src = "https://blinglogisticsnetwork.com/index.php/log-in-app";
 		}
 		else{
 			window.location = "conexion.html";
@@ -112,9 +114,9 @@
     
       <main class="mdl-layout__content mdl-color--grey-100">  
         <div class="mdl-grid demo-content">-->
-        
+        <div id="content" style="position: absolute; height: 100%; width:100%; border: none;" frameborder="0">
           <div style="text-align:center"><img src="images/logo_bling.png" alt="bling"/></div>
-          
+        </div>
       <!--   </div>
      </main>  
       </div> -->
