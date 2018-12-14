@@ -13,8 +13,8 @@
     //
     function onDeviceReady() {
 		document.addEventListener("offline", onOffline, false);
-		document.addEventListener('online',onOnline,false);
-		checkConnection();
+		//document.addEventListener('online',onOnline,false);
+		//checkConnection();
     }
 	
 	function checkConnection() {
